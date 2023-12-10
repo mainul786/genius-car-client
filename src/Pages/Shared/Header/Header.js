@@ -8,6 +8,12 @@ const Header = () => {
     <li className='font=semibold'>
     <Link to='/'>Home</Link>
     </li>
+    <li className='font=semibold'>
+    <Link to='/login'>Login</Link>
+    </li>
+    <li className='font=semibold'>
+    <Link to='/signup'>Sign Up</Link>
+    </li>
     </>
     return (
         <div className="navbar bg-base-100 pt-12 h-20 mb-12">
