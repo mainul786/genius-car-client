@@ -51,7 +51,7 @@ createUser(email, password)
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn btn-primary">Register</button>
                         </div>
                     </form>
                     <p className='text-center'>Have an already Accout? <Link to='/login' className='text-bold text-orange-600'>Login</Link></p>
