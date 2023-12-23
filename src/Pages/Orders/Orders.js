@@ -3,7 +3,7 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import OrderRow from './OrderRow';
 
 const Orders = () => {
-    const {user} = useContext(AuthContext);
+    const {user, logOut} = useContext(AuthContext);
     const [orders, setOrders] = useState([]);
 
    useEffect(()=>{
@@ -12,13 +12,18 @@ const Orders = () => {
         authorization: `Bearer ${localStorage.getItem('Genius-token')}`
       }
     })
-    .then(res=>res.json())
+    .then(res=>{
+      if(res.status ===401 || res.status === 403 ){
+        logOut()
+      }
+      return res.json()
+    })
     .then(data=>{
         console.log(data)
        setOrders(data)
         
     })
-   },[user?.email])
+   },[user?.email, logOut])
    const handleDelete = id => {
     const proceed = window.confirm('are you sure, you went to cancel your Order!');
     if (proceed) {
